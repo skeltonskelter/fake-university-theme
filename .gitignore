@@ -1,0 +1,13 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+#API key(s)
+inc/api-key.php
+
+#WordPress Plugins
+ai1wm-backups/
