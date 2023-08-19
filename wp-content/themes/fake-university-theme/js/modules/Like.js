@@ -53,8 +53,8 @@ class Like {
   async deleteLike(currentLikeBox) {
     try {
       const response = await axios({
+        method: "DELETE",
         url: universityData.root_url + "/wp-json/university/v1/manageLike",
-        method: "delete",
         data: { like: currentLikeBox.getAttribute("data-like") },
       });
       currentLikeBox.setAttribute("data-exists", "no");
