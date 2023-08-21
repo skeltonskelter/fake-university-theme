@@ -30,11 +30,11 @@ class Like {
 
   async createLike(currentLikeBox) {
     try {
-      const response = await axios.post(
+      const createResponse = await axios.post(
         universityData.root_url + "/wp-json/university/v1/manageLike",
         { professorId: currentLikeBox.getAttribute("data-professor") }
       );
-      if (response.data != "Only logged in users can create a like.") {
+      if (createResponse.data != "Only logged in users can create a like.") {
         currentLikeBox.setAttribute("data-exists", "yes");
         var likeCount = parseInt(
           currentLikeBox.querySelector(".like-count").innerHTML,
@@ -42,9 +42,9 @@ class Like {
         );
         likeCount++;
         currentLikeBox.querySelector(".like-count").innerHTML = likeCount;
-        currentLikeBox.setAttribute("data-like", response.data);
+        currentLikeBox.setAttribute("data-like", createResponse.data);
       }
-      console.log(response.data);
+      console.log(createResponse.data);
     } catch (e) {
       console.log("Sorry");
     }
@@ -52,7 +52,7 @@ class Like {
 
   async deleteLike(currentLikeBox) {
     try {
-      const response = await axios({
+      const deleteResponse = await axios({
         method: "DELETE",
         url: universityData.root_url + "/wp-json/university/v1/manageLike",
         data: { like: currentLikeBox.getAttribute("data-like") },
@@ -65,7 +65,7 @@ class Like {
       likeCount--;
       currentLikeBox.querySelector(".like-count").innerHTML = likeCount;
       currentLikeBox.setAttribute("data-like", "");
-      console.log(response.data);
+      console.log(deleteResponse.data);
     } catch (e) {
       console.log(e);
     }

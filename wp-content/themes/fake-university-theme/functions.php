@@ -63,9 +63,10 @@ function university_files()
         wp_enqueue_script('university-main-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
     } else {
         wp_enqueue_script('university-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.5f279596321d1405548b.js'), NULL, '1.0', true);
-        wp_enqueue_script('university-main-js', get_theme_file_uri('/bundled-assets/scripts.7d160c88268a229e7c54.js'), NULL, '1.0', true);
-        wp_enqueue_style('university_main_styles', get_theme_file_uri('/bundled-assets/styles.7d160c88268a229e7c54.css'));
+        wp_enqueue_script('university-main-js', get_theme_file_uri('/bundled-assets/scripts.6595c4d8ef7da11460bd.js'), NULL, '1.0', true);
+        wp_enqueue_style('university_main_styles', get_theme_file_uri('/bundled-assets/styles.6595c4d8ef7da11460bd.css'));
     }
+
     wp_localize_script('university-main-js', 'universityData', array(
         'root_url' => get_site_url(),
         'nonce' => wp_create_nonce('wp_rest')
@@ -86,6 +87,7 @@ function university_features()
     add_image_size('professorLandscape', 400, 260, true);
     add_image_size('professorPortrait', 480, 650, true);
     add_image_size('pageBanner', 1500, 350, true);
+    add_image_size('pageSlide', 1500, 450, true);
 }
 
 add_action('after_setup_theme', 'university_features');
@@ -160,7 +162,7 @@ add_action('login_enqueue_scripts', 'universityLoginCSS');
 
 function universityLoginCSS()
 {
-    wp_enqueue_style('university_main_styles', get_theme_file_uri('/bundled-assets/styles.7d160c88268a229e7c54.css'));
+    wp_enqueue_style('university_main_styles', get_theme_file_uri('/bundled-assets/styles.6595c4d8ef7da11460bd.css'));
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
 }
 

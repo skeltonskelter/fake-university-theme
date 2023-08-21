@@ -92,17 +92,34 @@ function university_post_types()
 
     // Like Post Type
     register_post_type('like', array(
+        'show_in_rest' => true,
         'supports' => array('title'),
         'public' => false,
         'show_ui' => true,
         'labels' => array(
-            'name' => 'Likes ',
+            'name' => 'Likes',
             'all_items' => 'All Likes',
             'add_new_item' => 'Add New Like',
             'edit_item' => 'Edit Like',
             'singular_name' => 'Like'
         ),
         'menu_icon' => 'dashicons-heart'
+    ));
+
+    // Slideshow Post Type
+    register_post_type('slideshow', array(
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor'),
+        'public' => true,
+        'show_ui' => true,
+        'labels' => array(
+            'name' => 'Slideshow',
+            'all_items' => 'All Slides',
+            'add_new_item' => 'Add New Slide',
+            'edit_item' => 'Edit Slide',
+            'singular_name' => 'Slide'
+        ),
+        'menu_icon' => 'dashicons-format-gallery'
     ));
 }
 
